@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 //     next();
 // });
 
-app.use(cors({ origin: 'http://localhost:8100', credentials: true}));
+app.use(cors({ origin: '*', allowedHeaders : ['Content-Type', 'sf_user', 'sf_password'] }));
 app.use('/api', api);
 
 app.get('*', function (req, res) {
