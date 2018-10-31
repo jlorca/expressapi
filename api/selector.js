@@ -12,6 +12,21 @@ function getAccounts(conn) {
     });
 }
 
+function getAccount(conn, accountId) {
+    return new Promise((resolve, reject) => {
+        conn.query(`SELECT Id, Name FROM Account WHERE Id = '${accountId}'`,
+            (err, res) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(res.records);
+                }
+            }
+        );
+    });
+}
+
 module.exports = {
-    getAccounts
+    getAccounts,
+    getAccount
 };
