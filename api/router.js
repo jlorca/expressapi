@@ -5,5 +5,6 @@ var express = require('express'),
 
 router.get('/accounts', md_auth.ensureAuth, controller.getAccounts)
 router.get('/account/:id', md_auth.ensureAuth, controller.getAccount)
+router.put('/accounts', md_auth.ensureAuth, controller.updateAccounts);
 
 module.exports = router

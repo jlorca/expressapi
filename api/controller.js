@@ -22,7 +22,20 @@ async function getAccount (req, res) {
 	}
 }
 
+async function updateAccounts (req, res) {
+	var conn = req.jsforceConn,
+		accounts;
+
+	try {
+		accounts = await selector.updateAccounts(conn, req.body.accounts);
+		res.status(200).send(accounts);
+	} catch (error) {
+		res.status(300).send(error);
+	}
+}
+
 module.exports = {
     getAccounts,
-    getAccount
+    getAccount,
+    updateAccounts
 };

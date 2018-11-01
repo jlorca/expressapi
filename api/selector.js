@@ -26,7 +26,20 @@ function getAccount(conn, accountId) {
     });
 }
 
+function updateAccounts(conn, accounts) {
+    return new Promise((resolve, reject) => {
+        conn.sobject("Account").update(accounts, (err, res) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(getSuccessRecords(res));
+            }
+        });
+    });
+}
+
 module.exports = {
     getAccounts,
-    getAccount
+    getAccount,
+    updateAccounts
 };
