@@ -14,7 +14,7 @@ function getAccounts(conn) {
 
 function getAccount(conn, accountId) {
     return new Promise((resolve, reject) => {
-        conn.query(`SELECT Id, Name, Website, Type, Rating FROM Account WHERE Id = '${accountId}'`,
+        conn.query(`SELECT Id, Name, Website, Type, Rating, Acc_Logo__c, Image_URL__c FROM Account WHERE Id = '${accountId}'`,
             (err, res) => {
                 if (err) {
                     reject(err);
