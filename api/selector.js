@@ -27,6 +27,7 @@ function getAccount(conn, accountId) {
 }
 
 function updateAccounts(conn, accounts) {
+console.log('accs = ' + accounts);
     return new Promise((resolve, reject) => {
         conn.sobject("Account").update(accounts, (err, res) => {
             if (err) {
@@ -36,6 +37,18 @@ function updateAccounts(conn, accounts) {
             }
         });
     });
+}
+
+function getSuccessRecords (records) {
+    var successRecords = [], i;
+ 
+    for (i=0; i < records.length; i++) {
+        if (records[i].success) {
+            successRecords.push(records[i]);
+        }
+    }
+
+    return successRecords;
 }
 
 module.exports = {
