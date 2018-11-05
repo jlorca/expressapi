@@ -8,19 +8,6 @@ var express = require('express'),
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-/*app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});*/
-// app.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-//     res.header("Access-Control-Allow-Credentials", "true");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-//     next();
-// });
-
 app.use(cors({ origin: '*', allowedHeaders : ['Content-Type', 'sf_user', 'sf_password'] }));
 app.use('/api', api);
 
